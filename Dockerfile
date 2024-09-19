@@ -4,10 +4,9 @@ FROM ubuntu:24.04 AS builder
 # Pull the checksum from bitcoin.org
 ARG BITCOIN_TAR_CHECKSUM="59ebd25dd82a51638b7a6bb914586201e67db67b919b2a1ff08925a7936d1b16"
 
-# Download the source tarball and verify its checksum
-ADD --checksum=sha256:${BITCOIN_TAR_CHECKSUM} \
-    https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz /
-
+# Download the source tarball, verify its checksum, and extract
+ADD https://bitcoin.org/bin/bitcoin-core-22.0/bitcoin-22.0-x86_64-linux-gnu.tar.gz /
+RUN echo $BITCOIN_TAR_CHECKSUM bitcoin-22.0-x86_64-linux-gnu.tar.gz | sha256sum -c
 RUN tar xzf bitcoin-22.0-x86_64-linux-gnu.tar.gz
 
 
