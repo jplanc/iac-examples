@@ -12,11 +12,19 @@ steps:
       cd terraform
       terraform init
       terraform apply -auto-approve -var="gcp_project=$PROJECT_ID"
-  - id: 'Deploy k8s namespace'
+  - id: 'k8s namespace'
     name: 'gcr.io/cloud-builders/gke-deploy'
     args:
     - run
     - --filename=k8s/bitcoind-namespace.yaml
+    - --location=us-central1
+    - --cluster=bitcoind
+  - id: 'k8s deployment'
+    name: 'gcr.io/cloud-builders/gke-deploy'
+    args:
+    - run
+    - --filename=k8s/bitcoind-deployment.yaml
+    - --image=us-central1-docker.pkg.dev/$PROJECT_ID/bitcoind/bitcoind:$COMMIT_SHA
     - --location=us-central1
     - --cluster=bitcoind
 options:
