@@ -18,3 +18,7 @@ spec:
           image: us-central1-docker.pkg.dev/bitcoind-example/bitcoind/bitcoind
           ports:
           - containerPort: 8333
+          resources:
+            requests:
+              memory: "3Gi"
+              cpu: 1 
