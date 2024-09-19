@@ -1,7 +1,10 @@
 steps:
   - id: 'Docker build'
     name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/bitcoind/bitcoind:$COMMIT_SHA', '.']
+  - id: 'Docker push'
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/bitcoind/bitcoind:$COMMIT_SHA']
   - id: 'Terraform apply'
     name: 'hashicorp/terraform:1.9.5'
     script: |
