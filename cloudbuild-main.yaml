@@ -19,6 +19,7 @@ steps:
     - --filename=k8s/bitcoind-namespace.yaml
     - --location=us-central1
     - --cluster=bitcoind
+    - --output=output-namespace
   - id: 'k8s deployment'
     name: 'gcr.io/cloud-builders/gke-deploy'
     args:
@@ -27,6 +28,7 @@ steps:
     - --image=us-central1-docker.pkg.dev/$PROJECT_ID/bitcoind/bitcoind:$COMMIT_SHA
     - --location=us-central1
     - --cluster=bitcoind
+    - --output=output-deployment
 options:
   automapSubstitutions: true
   logging: CLOUD_LOGGING_ONLY
