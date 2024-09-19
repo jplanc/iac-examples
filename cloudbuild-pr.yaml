@@ -1,0 +1,13 @@
+steps:
+  - id: 'Docker build'
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '.']
+  - id: 'Terraform apply'
+    name: 'hashicorp/terraform:1.9.5'
+    script: |
+      cd terraform
+      terraform init
+      terraform plan -var="gcp_project=$PROJECT_ID"
+options:
+  automapSubstitutions: true
+  logging: CLOUD_LOGGING_ONLY
