@@ -1,3 +1,4 @@
+# Google Cloud Build documentation was referenced while compsing this file
 steps:
   - id: 'Docker build'
     name: 'gcr.io/cloud-builders/docker'
@@ -11,6 +12,13 @@ steps:
       cd terraform
       terraform init
       terraform apply -auto-approve -var="gcp_project=$PROJECT_ID"
+  - id: 'Deploy k8s namespace'
+    name: 'gcr.io/cloud-builders/gke-deploy'
+    args:
+    - run
+    - --filename=k8s/bitcoind-namespace.yaml
+    - --location=us-central1
+    - --cluster=bitcoind
 options:
   automapSubstitutions: true
   logging: CLOUD_LOGGING_ONLY
