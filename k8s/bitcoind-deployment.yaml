@@ -17,4 +17,4 @@ spec:
         - name: bitcoind
           image: us-central1-docker.pkg.dev/bitcoind-example/bitcoind/bitcoind
           ports:
-          - containerPort 8333
+          - containerPort: 8333
