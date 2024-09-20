@@ -1,3 +1,5 @@
+# Define a namespace for our bitcoind resources to run in.
+
 apiVersion: v1
 kind: Namespace
 metadata:

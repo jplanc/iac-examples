@@ -1,3 +1,4 @@
+# Build triggers on changes to terraform files in the main branch.
 resource "google_cloudbuild_trigger" "main-terraform" {
   name            = "bitcoind-example-main-terraform"
   location        = "us-central1"
@@ -13,6 +14,7 @@ resource "google_cloudbuild_trigger" "main-terraform" {
   }
 }
 
+# Build triggers on changes to the Dockerfile or any k8s yamls.
 resource "google_cloudbuild_trigger" "main-k8s" {
   name            = "bitcoind-example-main-k8s"
   location        = "us-central1"
@@ -28,6 +30,7 @@ resource "google_cloudbuild_trigger" "main-k8s" {
   }
 }
 
+# Build triggers upon creation and updates to pull requests.
 resource "google_cloudbuild_trigger" "pr" {
   name            = "bitcoind-example-pr"
   location        = "us-central1"

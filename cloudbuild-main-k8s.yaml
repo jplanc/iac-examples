@@ -1,4 +1,7 @@
-# Google Cloud Build documentation was referenced while compsing this file
+# Build and push the bitcoind docker image and deploy k8s resources.
+# Will trigger when changes are made to the Dockerfile and k8s yamls in the main branch.
+# Google Cloud Build documentation was referenced while compsing this file.
+
 steps:
   - id: 'Docker build'
     name: 'gcr.io/cloud-builders/docker'

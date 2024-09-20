@@ -1,4 +1,6 @@
-# Google Cloud Build documentation was referenced while compsing this file
+# Test building the docker image and run a terraform plan to review in PRs.
+# Google Cloud Build documentation was referenced while compsing this file.
+
 steps:
   - id: 'Docker build'
     name: 'gcr.io/cloud-builders/docker'

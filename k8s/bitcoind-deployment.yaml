@@ -1,3 +1,7 @@
+# Define a k8s deployment to run our bitcoind containers.
+# Three replicas will run for redundancy.
+# This could be improved by defining storage options and/or using a StatefulSet.
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:

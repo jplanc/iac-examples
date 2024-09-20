@@ -1,4 +1,6 @@
-# Google Cloud Build documentation was referenced while compsing this file
+# Run a terraform apply when terraform changes are made in the main branch.
+# Google Cloud Build documentation was referenced while compsing this file.
+
 steps:
   - id: 'Terraform apply'
     name: 'hashicorp/terraform:1.9.5'
