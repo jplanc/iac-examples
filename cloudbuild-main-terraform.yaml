@@ -1,0 +1,11 @@
+# Google Cloud Build documentation was referenced while compsing this file
+steps:
+  - id: 'Terraform apply'
+    name: 'hashicorp/terraform:1.9.5'
+    script: |
+      cd terraform
+      terraform init
+      terraform apply -auto-approve -var="gcp_project=$PROJECT_ID"
+options:
+  automapSubstitutions: true
+  logging: CLOUD_LOGGING_ONLY
