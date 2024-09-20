@@ -20,7 +20,7 @@ spec:
         - containerPort: 8333
         resources:
           requests:
-            memory: "3Gi"
-            cpu: 1
+            memory: "2Gi"
+            cpu: "500m"
       nodeSelector:
         cloud.google.com/gke-nodepool: bitcoind
