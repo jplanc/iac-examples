@@ -26,6 +26,14 @@ steps:
     - --location=us-central1
     - --cluster=bitcoind
     - --output=output-deployment
+  - id: 'k8s service'
+    name: 'gcr.io/cloud-builders/gke-deploy'
+    args:
+    - run
+    - --filename=k8s/bitcoind-service.yaml
+    - --location=us-central1
+    - --cluster=bitcoind
+    - --output=output-service
 options:
   automapSubstitutions: true
   logging: CLOUD_LOGGING_ONLY

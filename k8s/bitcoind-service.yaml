@@ -1,0 +1,15 @@
+# Define a service to expose the deployment.
+
+# The NodePort service will allow for access within the VPC.
+# Other options can of course be chosen if different access is required.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: bitcoind
+spec:
+  type: NodePort
+  ports:
+    - port: 8333
+  selector:
+    app: bitcoind
