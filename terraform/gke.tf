@@ -17,4 +17,9 @@ resource "google_container_node_pool" "bitcoind" {
   node_config {
     machine_type = "e2-medium"
   }
+  autoscaling {
+    min_node_count  = 0
+    max_node_count  = 2
+    location_policy = "BALANCED"
+  }
 }
