@@ -14,11 +14,13 @@ spec:
         app: bitcoind
     spec:
       containers:
-        - name: bitcoind
-          image: us-central1-docker.pkg.dev/bitcoind-example/bitcoind/bitcoind
-          ports:
-          - containerPort: 8333
-          resources:
-            requests:
-              memory: "3Gi"
-              cpu: 1 
+      - name: bitcoind
+        image: us-central1-docker.pkg.dev/bitcoind-example/bitcoind/bitcoind
+        ports:
+        - containerPort: 8333
+        resources:
+          requests:
+            memory: "3Gi"
+            cpu: 1
+      nodeSelector:
+        cloud.google.com/gke-nodepool: bitcoind
