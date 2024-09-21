@@ -8,7 +8,7 @@ steps:
   - id: 'Terraform plan'
     name: 'hashicorp/terraform:1.9.5'
     script: |
-      cd terraform
+      cd bitcoind/terraform
       terraform init
       terraform plan -var="gcp_project=$PROJECT_ID"
 options:
