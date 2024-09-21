@@ -26,3 +26,4 @@ COPY --from=builder bitcoin-22.0 bitcoin
 EXPOSE 8333
 
 ENTRYPOINT ["/bitcoin/bin/bitcoind"]
+# Test
